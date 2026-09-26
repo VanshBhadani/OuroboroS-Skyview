@@ -1,0 +1,48 @@
+{
+  "datasetName": "bhote-koshi-2026-flood-eval",
+  "title": "Bhote Koshi / Trishuli River Flood Multimodal Evaluation Dataset",
+  "description": "Curated 100-sample multimodal flood dataset derived from public Vantor satellite imagery, Nepal DHM hydrometrics, and GeoConfirmed witness anchors.",
+  "license": "CC BY-NC 4.0",
+  "provenance": "public",
+  "geographicBounds": {
+    "west": 85.295,
+    "south": 28.135,
+    "east": 85.379,
+    "north": 28.292
+  },
+  "seed": 42,
+  "sampleCounts": {
+    "total": 100,
+    "train": 60,
+    "validation": 20,
+    "test": 20,
+    "positiveTotal": 50,
+    "negativeTotal": 50
+  },
+  "modalities": [
+    {
+      "id": "satellite",
+      "name": "Vantor WorldView-2/3 Satellite Optical Change",
+      "license": "CC BY-NC 4.0",
+      "scenes": [
+        "10300100C86CED00",
+        "B040001100881410"
+      ]
+    },
+    {
+      "id": "weatherHydrology",
+      "name": "Nepal DHM & Topographic Elevation Hydrometrics",
+      "license": "ODbL / CC BY 4.0",
+      "station": "DHM 652 (Trishuli)"
+    },
+    {
+      "id": "groundWitness",
+      "name": "GeoConfirmed / GeoGeorgeShadrach Ground OSINT",
+      "license": "Public Open Research"
+    }
+  ],
+  "classes": {
+    "0": "NON_FLOOD",
+    "1": "FLOOD"
+  }
+}

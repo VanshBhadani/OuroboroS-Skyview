@@ -1,0 +1,13064 @@
+/**
+ * Public Bhote Koshi / Trishuli Flood Evaluation Dataset
+ * Provenance: Vantor WorldView-2/3 (CC BY-NC 4.0), Nepal DHM (ODbL), GeoConfirmed (Public OSINT)
+ */
+export const EVALUATION_METADATA = Object.freeze({
+  "datasetName": "bhote-koshi-2026-flood-eval",
+  "title": "Bhote Koshi / Trishuli River Flood Multimodal Evaluation Dataset",
+  "description": "Curated 100-sample multimodal flood dataset derived from public Vantor satellite imagery, Nepal DHM hydrometrics, and GeoConfirmed witness anchors.",
+  "license": "CC BY-NC 4.0",
+  "provenance": "public",
+  "geographicBounds": {
+    "west": 85.295,
+    "south": 28.135,
+    "east": 85.379,
+    "north": 28.292
+  },
+  "seed": 42,
+  "sampleCounts": {
+    "total": 100,
+    "train": 60,
+    "validation": 20,
+    "test": 20,
+    "positiveTotal": 50,
+    "negativeTotal": 50
+  },
+  "modalities": [
+    {
+      "id": "satellite",
+      "name": "Vantor WorldView-2/3 Satellite Optical Change",
+      "license": "CC BY-NC 4.0",
+      "scenes": [
+        "10300100C86CED00",
+        "B040001100881410"
+      ]
+    },
+    {
+      "id": "weatherHydrology",
+      "name": "Nepal DHM & Topographic Elevation Hydrometrics",
+      "license": "ODbL / CC BY 4.0",
+      "station": "DHM 652 (Trishuli)"
+    },
+    {
+      "id": "groundWitness",
+      "name": "GeoConfirmed / GeoGeorgeShadrach Ground OSINT",
+      "license": "Public Open Research"
+    }
+  ],
+  "classes": {
+    "0": "NON_FLOOD",
+    "1": "FLOOD"
+  }
+});
+
+export const EVALUATION_TRAIN = Object.freeze([
+  {
+    "sampleId": "BK-096",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18168,
+      "lon": 85.34663,
+      "elevationM": 1651,
+      "chainageM": 36618,
+      "reachDescription": "Valley Wall Flank +185m (Reach km 36.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0208,
+          "spectralDiff": 0.0065,
+          "preRgb": [
+            50,
+            72,
+            61
+          ],
+          "postRgb": [
+            50,
+            75,
+            62
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 185,
+          "hydroRiskScore": 0.1311,
+          "channelBedStageM": 1466.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-088",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19907,
+      "lon": 85.35923,
+      "elevationM": 1657,
+      "chainageM": 34313,
+      "reachDescription": "Valley Wall Flank +133m (Reach km 34.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.5396,
+          "preRgb": [
+            42,
+            63,
+            56
+          ],
+          "postRgb": [
+            187,
+            197,
+            190
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 133,
+          "hydroRiskScore": 0.1628,
+          "channelBedStageM": 1523.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-070",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23832,
+      "lon": 85.36367,
+      "elevationM": 1856,
+      "chainageM": 29334,
+      "reachDescription": "Valley Wall Flank +211m (Reach km 29.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1599,
+          "spectralDiff": 0.018,
+          "preRgb": [
+            52,
+            72,
+            60
+          ],
+          "postRgb": [
+            57,
+            69,
+            66
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 211,
+          "hydroRiskScore": 0.1211,
+          "channelBedStageM": 1645.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-047",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18117,
+      "lon": 85.34236,
+      "elevationM": 1464.2,
+      "chainageM": 36907,
+      "reachDescription": "Trishuli River Corridor km 36.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3935,
+          "spectralDiff": 0.1035,
+          "preRgb": [
+            97,
+            106,
+            95
+          ],
+          "postRgb": [
+            128,
+            130,
+            119
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1464.2
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-052",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27779,
+      "lon": 85.38175,
+      "elevationM": 2086,
+      "chainageM": 24020,
+      "reachDescription": "Valley Wall Flank +289m (Reach km 24.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3691,
+          "spectralDiff": 0.0872,
+          "preRgb": [
+            52,
+            67,
+            56
+          ],
+          "postRgb": [
+            76,
+            87,
+            80
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 289,
+          "hydroRiskScore": 0.1019,
+          "channelBedStageM": 1796.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-038",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20079,
+      "lon": 85.35276,
+      "elevationM": 1523.5,
+      "chainageM": 34313,
+      "reachDescription": "Trishuli River Corridor km 34.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4356,
+          "preRgb": [
+            78,
+            91,
+            82
+          ],
+          "postRgb": [
+            191,
+            200,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1523.5
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-080",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2144,
+      "lon": 85.36102,
+      "elevationM": 1915,
+      "chainageM": 32156,
+      "reachDescription": "Valley Wall Flank +341m (Reach km 32.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3096,
+          "preRgb": [
+            67,
+            84,
+            66
+          ],
+          "postRgb": [
+            146,
+            158,
+            149
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 341,
+          "hydroRiskScore": 0.094,
+          "channelBedStageM": 1574.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-049",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.17684,
+      "lon": 85.34274,
+      "elevationM": 1456.3,
+      "chainageM": 37400,
+      "reachDescription": "Trishuli River Corridor km 37.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5515,
+          "spectralDiff": 0.1366,
+          "preRgb": [
+            92,
+            108,
+            95
+          ],
+          "postRgb": [
+            136,
+            138,
+            125
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1456.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-078",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2176,
+      "lon": 85.3649,
+      "elevationM": 1849,
+      "chainageM": 31515,
+      "reachDescription": "Valley Wall Flank +263m (Reach km 31.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3836,
+          "preRgb": [
+            32,
+            51,
+            49
+          ],
+          "postRgb": [
+            137,
+            147,
+            141
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 263,
+          "hydroRiskScore": 0.107,
+          "channelBedStageM": 1585.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-011",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2589,
+      "lon": 85.36715,
+      "elevationM": 1714,
+      "chainageM": 26640,
+      "reachDescription": "Trishuli River Corridor km 26.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2137,
+          "spectralDiff": 0.0427,
+          "preRgb": [
+            147,
+            150,
+            131
+          ],
+          "postRgb": [
+            135,
+            138,
+            122
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1714
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-007",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26685,
+      "lon": 85.37529,
+      "elevationM": 1759.9,
+      "chainageM": 25357,
+      "reachDescription": "Trishuli River Corridor km 25.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3019,
+          "spectralDiff": 0.086,
+          "preRgb": [
+            112,
+            118,
+            97
+          ],
+          "postRgb": [
+            134,
+            136,
+            122
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1759.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-023",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23336,
+      "lon": 85.3596,
+      "elevationM": 1644.8,
+      "chainageM": 30166,
+      "reachDescription": "Trishuli River Corridor km 30.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2232,
+          "spectralDiff": 0.0264,
+          "preRgb": [
+            58,
+            76,
+            65
+          ],
+          "postRgb": [
+            67,
+            73,
+            73
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1644.8
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-033",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21164,
+      "lon": 85.35443,
+      "elevationM": 1546.4,
+      "chainageM": 32988,
+      "reachDescription": "Trishuli River Corridor km 33.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4106,
+          "spectralDiff": 0.1092,
+          "preRgb": [
+            99,
+            110,
+            95
+          ],
+          "postRgb": [
+            132,
+            135,
+            121
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1546.4
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-026",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22688,
+      "lon": 85.36092,
+      "elevationM": 1605,
+      "chainageM": 30985,
+      "reachDescription": "Trishuli River Corridor km 31.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9313,
+          "spectralDiff": 0.1863,
+          "preRgb": [
+            135,
+            146,
+            125
+          ],
+          "postRgb": [
+            85,
+            92,
+            87
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1605
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-060",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25455,
+      "lon": 85.37094,
+      "elevationM": 2067,
+      "chainageM": 26313,
+      "reachDescription": "Valley Wall Flank +341m (Reach km 26.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0605,
+          "spectralDiff": 0.0189,
+          "preRgb": [
+            53,
+            70,
+            57
+          ],
+          "postRgb": [
+            51,
+            78,
+            60
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 341,
+          "hydroRiskScore": 0.094,
+          "channelBedStageM": 1726.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-005",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27119,
+      "lon": 85.37614,
+      "elevationM": 1780.2,
+      "chainageM": 24814,
+      "reachDescription": "Trishuli River Corridor km 24.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.7674,
+          "spectralDiff": 0.2134,
+          "preRgb": [
+            78,
+            90,
+            73
+          ],
+          "postRgb": [
+            136,
+            141,
+            127
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1780.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-046",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18335,
+      "lon": 85.34355,
+      "elevationM": 1466.3,
+      "chainageM": 36618,
+      "reachDescription": "Trishuli River Corridor km 36.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3895,
+          "spectralDiff": 0.069,
+          "preRgb": [
+            143,
+            153,
+            135
+          ],
+          "postRgb": [
+            129,
+            130,
+            118
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1466.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-044",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18771,
+      "lon": 85.34593,
+      "elevationM": 1475.5,
+      "chainageM": 36038,
+      "reachDescription": "Trishuli River Corridor km 36.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5943,
+          "spectralDiff": 0.1585,
+          "preRgb": [
+            82,
+            95,
+            84
+          ],
+          "postRgb": [
+            129,
+            133,
+            120
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1475.5
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-028",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22254,
+      "lon": 85.36037,
+      "elevationM": 1585.7,
+      "chainageM": 31515,
+      "reachDescription": "Trishuli River Corridor km 31.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1179,
+          "spectralDiff": 0.0295,
+          "preRgb": [
+            114,
+            125,
+            109
+          ],
+          "postRgb": [
+            120,
+            128,
+            122
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1585.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-084",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21073,
+      "lon": 85.35826,
+      "elevationM": 1778,
+      "chainageM": 33241,
+      "reachDescription": "Valley Wall Flank +237m (Reach km 33.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4378,
+          "preRgb": [
+            48,
+            69,
+            60
+          ],
+          "postRgb": [
+            166,
+            177,
+            169
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 237,
+          "hydroRiskScore": 0.1133,
+          "channelBedStageM": 1541.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-043",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.1899,
+      "lon": 85.34773,
+      "elevationM": 1481,
+      "chainageM": 35724,
+      "reachDescription": "Trishuli River Corridor km 35.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5918,
+          "spectralDiff": 0.1529,
+          "preRgb": [
+            74,
+            88,
+            79
+          ],
+          "postRgb": [
+            120,
+            124,
+            114
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1481
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-039",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19862,
+      "lon": 85.35218,
+      "elevationM": 1508,
+      "chainageM": 34577,
+      "reachDescription": "Trishuli River Corridor km 34.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.5095,
+          "preRgb": [
+            56,
+            72,
+            67
+          ],
+          "postRgb": [
+            192,
+            200,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1508
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-063",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25622,
+      "lon": 85.35828,
+      "elevationM": 2019,
+      "chainageM": 27244,
+      "reachDescription": "Valley Wall Flank +328m (Reach km 27.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0521,
+          "spectralDiff": 0.011,
+          "preRgb": [
+            65,
+            84,
+            66
+          ],
+          "postRgb": [
+            64,
+            80,
+            70
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 328,
+          "hydroRiskScore": 0.0957,
+          "channelBedStageM": 1691.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-062",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25347,
+      "lon": 85.36989,
+      "elevationM": 1866,
+      "chainageM": 26954,
+      "reachDescription": "Valley Wall Flank +159m (Reach km 27.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0742,
+          "spectralDiff": 0.0232,
+          "preRgb": [
+            68,
+            87,
+            72
+          ],
+          "postRgb": [
+            70,
+            99,
+            76
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 159,
+          "hydroRiskScore": 0.1443,
+          "channelBedStageM": 1706.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-057",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27062,
+      "lon": 85.37186,
+      "elevationM": 2114,
+      "chainageM": 25357,
+      "reachDescription": "Valley Wall Flank +354m (Reach km 25.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0595,
+          "spectralDiff": 0.0186,
+          "preRgb": [
+            96,
+            98,
+            83
+          ],
+          "postRgb": [
+            95,
+            103,
+            92
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 354,
+          "hydroRiskScore": 0.0924,
+          "channelBedStageM": 1759.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-100",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.17635,
+      "lon": 85.34782,
+      "elevationM": 1773,
+      "chainageM": 37665,
+      "reachDescription": "Valley Wall Flank +341m (Reach km 37.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.055,
+          "spectralDiff": 0.0139,
+          "preRgb": [
+            61,
+            81,
+            69
+          ],
+          "postRgb": [
+            57,
+            84,
+            66
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 341,
+          "hydroRiskScore": 0.094,
+          "channelBedStageM": 1431.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-083",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21336,
+      "lon": 85.34796,
+      "elevationM": 1874,
+      "chainageM": 32988,
+      "reachDescription": "Valley Wall Flank +328m (Reach km 33.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8372,
+          "spectralDiff": 0.2314,
+          "preRgb": [
+            73,
+            93,
+            77
+          ],
+          "postRgb": [
+            133,
+            149,
+            139
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 328,
+          "hydroRiskScore": 0.0957,
+          "channelBedStageM": 1546.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-058",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25972,
+      "lon": 85.37771,
+      "elevationM": 2008,
+      "chainageM": 25684,
+      "reachDescription": "Valley Wall Flank +263m (Reach km 25.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1639,
+          "spectralDiff": 0.0491,
+          "preRgb": [
+            36,
+            53,
+            48
+          ],
+          "postRgb": [
+            47,
+            70,
+            57
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 263,
+          "hydroRiskScore": 0.107,
+          "channelBedStageM": 1745.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-048",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.17901,
+      "lon": 85.3427,
+      "elevationM": 1474.1,
+      "chainageM": 37160,
+      "reachDescription": "Trishuli River Corridor km 37.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2565,
+          "spectralDiff": 0.0559,
+          "preRgb": [
+            111,
+            125,
+            110
+          ],
+          "postRgb": [
+            133,
+            135,
+            121
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1474.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-073",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23,
+      "lon": 85.3538,
+      "elevationM": 1843,
+      "chainageM": 30166,
+      "reachDescription": "Valley Wall Flank +198m (Reach km 30.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1309,
+          "spectralDiff": 0.0214,
+          "preRgb": [
+            75,
+            97,
+            75
+          ],
+          "postRgb": [
+            77,
+            91,
+            84
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 198,
+          "hydroRiskScore": 0.1258,
+          "channelBedStageM": 1644.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-006",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26903,
+      "lon": 85.37617,
+      "elevationM": 1779.5,
+      "chainageM": 25054,
+      "reachDescription": "Trishuli River Corridor km 25.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0976,
+          "spectralDiff": 0.0186,
+          "preRgb": [
+            125,
+            132,
+            112
+          ],
+          "postRgb": [
+            133,
+            133,
+            118
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1779.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-004",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27336,
+      "lon": 85.37641,
+      "elevationM": 1779.8,
+      "chainageM": 24537,
+      "reachDescription": "Trishuli River Corridor km 24.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5201,
+          "spectralDiff": 0.147,
+          "preRgb": [
+            103,
+            111,
+            96
+          ],
+          "postRgb": [
+            143,
+            145,
+            133
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1779.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-040",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19643,
+      "lon": 85.35038,
+      "elevationM": 1496.7,
+      "chainageM": 34892,
+      "reachDescription": "Trishuli River Corridor km 34.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3418,
+          "preRgb": [
+            114,
+            120,
+            104
+          ],
+          "postRgb": [
+            198,
+            203,
+            198
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1496.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-093",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19486,
+      "lon": 85.34322,
+      "elevationM": 1679,
+      "chainageM": 35724,
+      "reachDescription": "Valley Wall Flank +198m (Reach km 35.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.2937,
+          "preRgb": [
+            73,
+            89,
+            69
+          ],
+          "postRgb": [
+            145,
+            160,
+            150
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 198,
+          "hydroRiskScore": 0.1258,
+          "channelBedStageM": 1481
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-067",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2496,
+      "lon": 85.35809,
+      "elevationM": 1896,
+      "chainageM": 28415,
+      "reachDescription": "Valley Wall Flank +224m (Reach km 28.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6827,
+          "spectralDiff": 0.1596,
+          "preRgb": [
+            53,
+            75,
+            62
+          ],
+          "postRgb": [
+            99,
+            110,
+            104
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 224,
+          "hydroRiskScore": 0.117,
+          "channelBedStageM": 1672.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-019",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.242,
+      "lon": 85.35763,
+      "elevationM": 1645.5,
+      "chainageM": 29057,
+      "reachDescription": "Trishuli River Corridor km 29.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4528,
+          "spectralDiff": 0.0904,
+          "preRgb": [
+            107,
+            114,
+            99
+          ],
+          "postRgb": [
+            82,
+            88,
+            81
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1645.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-017",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.24584,
+      "lon": 85.36154,
+      "elevationM": 1672.1,
+      "chainageM": 28415,
+      "reachDescription": "Trishuli River Corridor km 28.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0668,
+          "spectralDiff": 0.0184,
+          "preRgb": [
+            105,
+            112,
+            97
+          ],
+          "postRgb": [
+            102,
+            108,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1672.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-036",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20514,
+      "lon": 85.35422,
+      "elevationM": 1530.3,
+      "chainageM": 33770,
+      "reachDescription": "Trishuli River Corridor km 33.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6028,
+          "spectralDiff": 0.1884,
+          "preRgb": [
+            126,
+            131,
+            116
+          ],
+          "postRgb": [
+            168,
+            179,
+            170
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1530.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-095",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18929,
+      "lon": 85.3405,
+      "elevationM": 1743,
+      "chainageM": 36316,
+      "reachDescription": "Valley Wall Flank +276m (Reach km 36.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.063,
+          "spectralDiff": 0.0197,
+          "preRgb": [
+            74,
+            88,
+            69
+          ],
+          "postRgb": [
+            67,
+            95,
+            70
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 276,
+          "hydroRiskScore": 0.1043,
+          "channelBedStageM": 1467.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-086",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20347,
+      "lon": 85.3573,
+      "elevationM": 1845,
+      "chainageM": 33770,
+      "reachDescription": "Valley Wall Flank +315m (Reach km 33.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.5298,
+          "preRgb": [
+            42,
+            63,
+            57
+          ],
+          "postRgb": [
+            185,
+            195,
+            188
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 315,
+          "hydroRiskScore": 0.0976,
+          "channelBedStageM": 1530.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-059",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.26565,
+      "lon": 85.36908,
+      "elevationM": 1898,
+      "chainageM": 25973,
+      "reachDescription": "Valley Wall Flank +172m (Reach km 26.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1679,
+          "spectralDiff": 0.0336,
+          "preRgb": [
+            64,
+            85,
+            67
+          ],
+          "postRgb": [
+            55,
+            75,
+            59
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 172,
+          "hydroRiskScore": 0.1372,
+          "channelBedStageM": 1725.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-090",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19491,
+      "lon": 85.35608,
+      "elevationM": 1708,
+      "chainageM": 34892,
+      "reachDescription": "Valley Wall Flank +211m (Reach km 34.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4962,
+          "preRgb": [
+            42,
+            60,
+            58
+          ],
+          "postRgb": [
+            173,
+            187,
+            179
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 211,
+          "hydroRiskScore": 0.1211,
+          "channelBedStageM": 1496.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-076",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.22691,
+      "lon": 85.36442,
+      "elevationM": 1790,
+      "chainageM": 30985,
+      "reachDescription": "Valley Wall Flank +185m (Reach km 31.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3356,
+          "spectralDiff": 0.1049,
+          "preRgb": [
+            102,
+            107,
+            86
+          ],
+          "postRgb": [
+            121,
+            131,
+            123
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 185,
+          "hydroRiskScore": 0.1311,
+          "channelBedStageM": 1605
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-030",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21816,
+      "lon": 85.35647,
+      "elevationM": 1574.3,
+      "chainageM": 32156,
+      "reachDescription": "Trishuli River Corridor km 32.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5055,
+          "spectralDiff": 0.1442,
+          "preRgb": [
+            81,
+            92,
+            86
+          ],
+          "postRgb": [
+            121,
+            130,
+            120
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1574.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-066",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2458,
+      "lon": 85.36635,
+      "elevationM": 1988,
+      "chainageM": 28088,
+      "reachDescription": "Valley Wall Flank +315m (Reach km 28.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2635,
+          "spectralDiff": 0.0505,
+          "preRgb": [
+            43,
+            63,
+            59
+          ],
+          "postRgb": [
+            59,
+            75,
+            68
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 315,
+          "hydroRiskScore": 0.0976,
+          "channelBedStageM": 1673.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-071",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23761,
+      "lon": 85.35419,
+      "elevationM": 1761,
+      "chainageM": 29611,
+      "reachDescription": "Valley Wall Flank +120m (Reach km 29.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3162,
+          "spectralDiff": 0.0924,
+          "preRgb": [
+            77,
+            89,
+            76
+          ],
+          "postRgb": [
+            97,
+            110,
+            105
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 120,
+          "hydroRiskScore": 0.175,
+          "channelBedStageM": 1640.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-085",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20726,
+      "lon": 85.3489,
+      "elevationM": 1682,
+      "chainageM": 33506,
+      "reachDescription": "Valley Wall Flank +146m (Reach km 33.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4843,
+          "preRgb": [
+            60,
+            80,
+            68
+          ],
+          "postRgb": [
+            188,
+            198,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 146,
+          "hydroRiskScore": 0.1527,
+          "channelBedStageM": 1536.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-014",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.25238,
+      "lon": 85.36511,
+      "elevationM": 1689.4,
+      "chainageM": 27521,
+      "reachDescription": "Trishuli River Corridor km 27.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1006,
+          "spectralDiff": 0.0148,
+          "preRgb": [
+            96,
+            109,
+            96
+          ],
+          "postRgb": [
+            102,
+            107,
+            100
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1689.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-087",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20427,
+      "lon": 85.3481,
+      "elevationM": 1750,
+      "chainageM": 34060,
+      "reachDescription": "Valley Wall Flank +224m (Reach km 34.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4354,
+          "preRgb": [
+            81,
+            96,
+            79
+          ],
+          "postRgb": [
+            193,
+            202,
+            194
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 224,
+          "hydroRiskScore": 0.117,
+          "channelBedStageM": 1526.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-016",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.24803,
+      "lon": 85.36365,
+      "elevationM": 1673.2,
+      "chainageM": 28088,
+      "reachDescription": "Trishuli River Corridor km 28.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.2314,
+          "preRgb": [
+            145,
+            159,
+            139
+          ],
+          "postRgb": [
+            86,
+            92,
+            87
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1673.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-042",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19208,
+      "lon": 85.34892,
+      "elevationM": 1484,
+      "chainageM": 35434,
+      "reachDescription": "Trishuli River Corridor km 35.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9236,
+          "spectralDiff": 0.2822,
+          "preRgb": [
+            99,
+            110,
+            96
+          ],
+          "postRgb": [
+            168,
+            180,
+            174
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1484
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-050",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.17467,
+      "lon": 85.34216,
+      "elevationM": 1431.7,
+      "chainageM": 37665,
+      "reachDescription": "Trishuli River Corridor km 37.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8227,
+          "spectralDiff": 0.1923,
+          "preRgb": [
+            64,
+            85,
+            70
+          ],
+          "postRgb": [
+            124,
+            125,
+            117
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1431.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-077",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.22603,
+      "lon": 85.35633,
+      "elevationM": 1942,
+      "chainageM": 31238,
+      "reachDescription": "Valley Wall Flank +354m (Reach km 31.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4787,
+          "spectralDiff": 0.1053,
+          "preRgb": [
+            58,
+            81,
+            66
+          ],
+          "postRgb": [
+            89,
+            102,
+            95
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 354,
+          "hydroRiskScore": 0.0924,
+          "channelBedStageM": 1587.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-075",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23057,
+      "lon": 85.35518,
+      "elevationM": 1896,
+      "chainageM": 30720,
+      "reachDescription": "Valley Wall Flank +276m (Reach km 30.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1403,
+          "spectralDiff": 0.0187,
+          "preRgb": [
+            66,
+            87,
+            71
+          ],
+          "postRgb": [
+            71,
+            84,
+            77
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 276,
+          "hydroRiskScore": 0.1043,
+          "channelBedStageM": 1619.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-003",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27553,
+      "lon": 85.37669,
+      "elevationM": 1777.4,
+      "chainageM": 24260,
+      "reachDescription": "Trishuli River Corridor km 24.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0855,
+          "spectralDiff": 0.0193,
+          "preRgb": [
+            127,
+            126,
+            105
+          ],
+          "postRgb": [
+            133,
+            128,
+            113
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1777.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-094",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18779,
+      "lon": 85.35023,
+      "elevationM": 1843,
+      "chainageM": 36038,
+      "reachDescription": "Valley Wall Flank +367m (Reach km 36.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.03,
+          "spectralDiff": 0.0082,
+          "preRgb": [
+            41,
+            60,
+            58
+          ],
+          "postRgb": [
+            44,
+            63,
+            59
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 367,
+          "hydroRiskScore": 0.0909,
+          "channelBedStageM": 1475.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-025",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22905,
+      "lon": 85.36088,
+      "elevationM": 1619.7,
+      "chainageM": 30720,
+      "reachDescription": "Trishuli River Corridor km 30.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.931,
+          "spectralDiff": 0.1862,
+          "preRgb": [
+            153,
+            161,
+            140
+          ],
+          "postRgb": [
+            102,
+            107,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1619.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-061",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.26057,
+      "lon": 85.36407,
+      "elevationM": 1964,
+      "chainageM": 26640,
+      "reachDescription": "Valley Wall Flank +250m (Reach km 26.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0677,
+          "spectralDiff": 0.0144,
+          "preRgb": [
+            82,
+            98,
+            75
+          ],
+          "postRgb": [
+            75,
+            96,
+            76
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 250,
+          "hydroRiskScore": 0.11,
+          "channelBedStageM": 1714
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-002",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2777,
+      "lon": 85.37665,
+      "elevationM": 1796.5,
+      "chainageM": 24020,
+      "reachDescription": "Trishuli River Corridor km 24.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4208,
+          "spectralDiff": 0.0705,
+          "preRgb": [
+            159,
+            173,
+            153
+          ],
+          "postRgb": [
+            150,
+            149,
+            132
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1796.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-034",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20947,
+      "lon": 85.35415,
+      "elevationM": 1541.1,
+      "chainageM": 33241,
+      "reachDescription": "Trishuli River Corridor km 33.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0777,
+          "spectralDiff": 0.0157,
+          "preRgb": [
+            123,
+            133,
+            117
+          ],
+          "postRgb": [
+            127,
+            133,
+            124
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1541.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  }
+]);
+
+export const EVALUATION_VALIDATION = Object.freeze([
+  {
+    "sampleId": "BK-029",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22035,
+      "lon": 85.35796,
+      "elevationM": 1590.1,
+      "chainageM": 31854,
+      "reachDescription": "Trishuli River Corridor km 31.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5686,
+          "spectralDiff": 0.13,
+          "preRgb": [
+            71,
+            93,
+            75
+          ],
+          "postRgb": [
+            112,
+            118,
+            109
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1590.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-081",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21688,
+      "lon": 85.35159,
+      "elevationM": 1808,
+      "chainageM": 32459,
+      "reachDescription": "Valley Wall Flank +250m (Reach km 32.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9381,
+          "spectralDiff": 0.1876,
+          "preRgb": [
+            119,
+            132,
+            123
+          ],
+          "postRgb": [
+            69,
+            87,
+            74
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 250,
+          "hydroRiskScore": 0.11,
+          "channelBedStageM": 1558.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-035",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20731,
+      "lon": 85.3548,
+      "elevationM": 1536.1,
+      "chainageM": 33506,
+      "reachDescription": "Trishuli River Corridor km 33.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3974,
+          "preRgb": [
+            79,
+            90,
+            76
+          ],
+          "postRgb": [
+            179,
+            189,
+            181
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1536.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-053",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27363,
+      "lon": 85.37027,
+      "elevationM": 1975,
+      "chainageM": 24260,
+      "reachDescription": "Valley Wall Flank +198m (Reach km 24.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0404,
+          "spectralDiff": 0.011,
+          "preRgb": [
+            63,
+            80,
+            60
+          ],
+          "postRgb": [
+            64,
+            81,
+            65
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 198,
+          "hydroRiskScore": 0.1258,
+          "channelBedStageM": 1777.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-056",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.26816,
+      "lon": 85.37956,
+      "elevationM": 1965,
+      "chainageM": 25054,
+      "reachDescription": "Valley Wall Flank +185m (Reach km 25.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1481,
+          "spectralDiff": 0.0297,
+          "preRgb": [
+            36,
+            52,
+            51
+          ],
+          "postRgb": [
+            46,
+            62,
+            54
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 185,
+          "hydroRiskScore": 0.1311,
+          "channelBedStageM": 1779.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-072",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2381,
+      "lon": 85.36273,
+      "elevationM": 1932,
+      "chainageM": 29876,
+      "reachDescription": "Valley Wall Flank +289m (Reach km 29.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3727,
+          "spectralDiff": 0.0745,
+          "preRgb": [
+            51,
+            71,
+            60
+          ],
+          "postRgb": [
+            33,
+            47,
+            46
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 289,
+          "hydroRiskScore": 0.1019,
+          "channelBedStageM": 1642.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-079",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.22307,
+      "lon": 85.35463,
+      "elevationM": 1762,
+      "chainageM": 31854,
+      "reachDescription": "Valley Wall Flank +172m (Reach km 31.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.7786,
+          "spectralDiff": 0.2025,
+          "preRgb": [
+            70,
+            91,
+            72
+          ],
+          "postRgb": [
+            125,
+            135,
+            128
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 172,
+          "hydroRiskScore": 0.1372,
+          "channelBedStageM": 1590.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-064",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25033,
+      "lon": 85.36889,
+      "elevationM": 1926,
+      "chainageM": 27521,
+      "reachDescription": "Valley Wall Flank +237m (Reach km 27.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0275,
+          "spectralDiff": 0.0086,
+          "preRgb": [
+            41,
+            60,
+            56
+          ],
+          "postRgb": [
+            43,
+            64,
+            55
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 237,
+          "hydroRiskScore": 0.1133,
+          "channelBedStageM": 1689.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-051",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.28251,
+      "lon": 85.37679,
+      "elevationM": 1938,
+      "chainageM": 23705,
+      "reachDescription": "Valley Wall Flank +120m (Reach km 23.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9842,
+          "spectralDiff": 0.2686,
+          "preRgb": [
+            65,
+            82,
+            65
+          ],
+          "postRgb": [
+            138,
+            147,
+            133
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 120,
+          "hydroRiskScore": 0.175,
+          "channelBedStageM": 1818.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-015",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2502,
+      "lon": 85.36423,
+      "elevationM": 1669.5,
+      "chainageM": 27798,
+      "reachDescription": "Trishuli River Corridor km 27.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3735,
+          "spectralDiff": 0.0615,
+          "preRgb": [
+            60,
+            81,
+            66
+          ],
+          "postRgb": [
+            82,
+            87,
+            84
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1669.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-068",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23995,
+      "lon": 85.36431,
+      "elevationM": 1813,
+      "chainageM": 28755,
+      "reachDescription": "Valley Wall Flank +133m (Reach km 28.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3236,
+          "spectralDiff": 0.0539,
+          "preRgb": [
+            39,
+            58,
+            54
+          ],
+          "postRgb": [
+            57,
+            68,
+            67
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 133,
+          "hydroRiskScore": 0.1628,
+          "channelBedStageM": 1680.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-001",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27962,
+      "lon": 85.37877,
+      "elevationM": 1818.4,
+      "chainageM": 23705,
+      "reachDescription": "Trishuli River Corridor km 23.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4038,
+          "spectralDiff": 0.1262,
+          "preRgb": [
+            106,
+            101,
+            89
+          ],
+          "postRgb": [
+            131,
+            136,
+            126
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1818.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-018",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.24419,
+      "lon": 85.35912,
+      "elevationM": 1680.3,
+      "chainageM": 28755,
+      "reachDescription": "Trishuli River Corridor km 28.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1786,
+          "spectralDiff": 0.0558,
+          "preRgb": [
+            116,
+            121,
+            105
+          ],
+          "postRgb": [
+            126,
+            134,
+            126
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1680.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-010",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26029,
+      "lon": 85.36958,
+      "elevationM": 1726.2,
+      "chainageM": 26313,
+      "reachDescription": "Trishuli River Corridor km 26.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6295,
+          "spectralDiff": 0.1525,
+          "preRgb": [
+            67,
+            85,
+            66
+          ],
+          "postRgb": [
+            112,
+            117,
+            105
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1726.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-021",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23767,
+      "lon": 85.35769,
+      "elevationM": 1640.9,
+      "chainageM": 29611,
+      "reachDescription": "Trishuli River Corridor km 29.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5598,
+          "spectralDiff": 0.1021,
+          "preRgb": [
+            103,
+            117,
+            100
+          ],
+          "postRgb": [
+            79,
+            84,
+            80
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1640.9
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-045",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18553,
+      "lon": 85.34505,
+      "elevationM": 1467.4,
+      "chainageM": 36316,
+      "reachDescription": "Trishuli River Corridor km 36.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1326,
+          "spectralDiff": 0.0284,
+          "preRgb": [
+            119,
+            128,
+            112
+          ],
+          "postRgb": [
+            130,
+            132,
+            119
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1467.4
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-074",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23242,
+      "lon": 85.36436,
+      "elevationM": 2008,
+      "chainageM": 30455,
+      "reachDescription": "Valley Wall Flank +367m (Reach km 30.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3148,
+          "spectralDiff": 0.0984,
+          "preRgb": [
+            78,
+            86,
+            71
+          ],
+          "postRgb": [
+            99,
+            109,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 367,
+          "hydroRiskScore": 0.0909,
+          "channelBedStageM": 1640.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-055",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27108,
+      "lon": 85.37024,
+      "elevationM": 2056,
+      "chainageM": 24814,
+      "reachDescription": "Valley Wall Flank +276m (Reach km 24.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2775,
+          "spectralDiff": 0.0785,
+          "preRgb": [
+            76,
+            88,
+            71
+          ],
+          "postRgb": [
+            96,
+            107,
+            92
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 276,
+          "hydroRiskScore": 0.1043,
+          "channelBedStageM": 1780.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-008",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26466,
+      "lon": 85.37318,
+      "elevationM": 1745.1,
+      "chainageM": 25684,
+      "reachDescription": "Trishuli River Corridor km 25.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.7616,
+          "spectralDiff": 0.1951,
+          "preRgb": [
+            60,
+            74,
+            67
+          ],
+          "postRgb": [
+            119,
+            122,
+            110
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1745.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-012",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.25672,
+      "lon": 85.36596,
+      "elevationM": 1706.8,
+      "chainageM": 26954,
+      "reachDescription": "Trishuli River Corridor km 27.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3711,
+          "spectralDiff": 0.0742,
+          "preRgb": [
+            133,
+            131,
+            115
+          ],
+          "postRgb": [
+            108,
+            111,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1706.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  }
+]);
+
+export const EVALUATION_TEST = Object.freeze([
+  {
+    "sampleId": "BK-037",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20296,
+      "lon": 85.35303,
+      "elevationM": 1526.2,
+      "chainageM": 34060,
+      "reachDescription": "Trishuli River Corridor km 34.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9738,
+          "spectralDiff": 0.2958,
+          "preRgb": [
+            119,
+            129,
+            111
+          ],
+          "postRgb": [
+            192,
+            200,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1526.2
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-097",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18108,
+      "lon": 85.33726,
+      "elevationM": 1818,
+      "chainageM": 36907,
+      "reachDescription": "Valley Wall Flank +354m (Reach km 36.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1092,
+          "spectralDiff": 0.0114,
+          "preRgb": [
+            45,
+            61,
+            60
+          ],
+          "postRgb": [
+            50,
+            61,
+            64
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 354,
+          "hydroRiskScore": 0.0924,
+          "channelBedStageM": 1464.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-020",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23984,
+      "lon": 85.35797,
+      "elevationM": 1645.3,
+      "chainageM": 29334,
+      "reachDescription": "Trishuli River Corridor km 29.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8566,
+          "spectralDiff": 0.1713,
+          "preRgb": [
+            142,
+            146,
+            129
+          ],
+          "postRgb": [
+            93,
+            98,
+            95
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1645.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-089",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20134,
+      "lon": 85.34885,
+      "elevationM": 1810,
+      "chainageM": 34577,
+      "reachDescription": "Valley Wall Flank +302m (Reach km 34.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3519,
+          "preRgb": [
+            68,
+            87,
+            68
+          ],
+          "postRgb": [
+            159,
+            171,
+            162
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 302,
+          "hydroRiskScore": 0.0997,
+          "channelBedStageM": 1508
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-091",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19593,
+      "lon": 85.34672,
+      "elevationM": 1614,
+      "chainageM": 35157,
+      "reachDescription": "Valley Wall Flank +120m (Reach km 35.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3553,
+          "preRgb": [
+            73,
+            95,
+            73
+          ],
+          "postRgb": [
+            166,
+            178,
+            169
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 120,
+          "hydroRiskScore": 0.175,
+          "channelBedStageM": 1493.6
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-009",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26248,
+      "lon": 85.37199,
+      "elevationM": 1725.5,
+      "chainageM": 25973,
+      "reachDescription": "Trishuli River Corridor km 26.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.2649,
+          "preRgb": [
+            57,
+            73,
+            61
+          ],
+          "postRgb": [
+            134,
+            136,
+            123
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1725.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-069",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.24312,
+      "lon": 85.35348,
+      "elevationM": 1948,
+      "chainageM": 29057,
+      "reachDescription": "Valley Wall Flank +302m (Reach km 29.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1633,
+          "spectralDiff": 0.0285,
+          "preRgb": [
+            75,
+            94,
+            80
+          ],
+          "postRgb": [
+            68,
+            83,
+            76
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 302,
+          "hydroRiskScore": 0.0997,
+          "channelBedStageM": 1645.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-041",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19426,
+      "lon": 85.3498,
+      "elevationM": 1493.6,
+      "chainageM": 35157,
+      "reachDescription": "Trishuli River Corridor km 35.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3295,
+          "preRgb": [
+            93,
+            99,
+            90
+          ],
+          "postRgb": [
+            174,
+            184,
+            176
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1493.6
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-024",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2312,
+      "lon": 85.36024,
+      "elevationM": 1640.7,
+      "chainageM": 30455,
+      "reachDescription": "Trishuli River Corridor km 30.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.181,
+          "spectralDiff": 0.0265,
+          "preRgb": [
+            88,
+            105,
+            88
+          ],
+          "postRgb": [
+            92,
+            97,
+            96
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1640.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-065",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.24852,
+      "lon": 85.35857,
+      "elevationM": 1816,
+      "chainageM": 27798,
+      "reachDescription": "Valley Wall Flank +146m (Reach km 27.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5056,
+          "spectralDiff": 0.1401,
+          "preRgb": [
+            75,
+            89,
+            73
+          ],
+          "postRgb": [
+            110,
+            121,
+            113
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 146,
+          "hydroRiskScore": 0.1527,
+          "channelBedStageM": 1669.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-099",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.17796,
+      "lon": 85.33859,
+      "elevationM": 1628,
+      "chainageM": 37400,
+      "reachDescription": "Valley Wall Flank +172m (Reach km 37.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0843,
+          "spectralDiff": 0.0169,
+          "preRgb": [
+            93,
+            101,
+            83
+          ],
+          "postRgb": [
+            84,
+            97,
+            83
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 172,
+          "hydroRiskScore": 0.1372,
+          "channelBedStageM": 1456.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-082",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21249,
+      "lon": 85.35993,
+      "elevationM": 1711,
+      "chainageM": 32723,
+      "reachDescription": "Valley Wall Flank +159m (Reach km 32.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3201,
+          "preRgb": [
+            73,
+            86,
+            72
+          ],
+          "postRgb": [
+            154,
+            165,
+            157
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 159,
+          "hydroRiskScore": 0.1443,
+          "channelBedStageM": 1552.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-022",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23551,
+      "lon": 85.35834,
+      "elevationM": 1642.5,
+      "chainageM": 29876,
+      "reachDescription": "Trishuli River Corridor km 29.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2338,
+          "spectralDiff": 0.0206,
+          "preRgb": [
+            61,
+            81,
+            70
+          ],
+          "postRgb": [
+            67,
+            72,
+            70
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1642.5
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-027",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22472,
+      "lon": 85.36126,
+      "elevationM": 1587.9,
+      "chainageM": 31238,
+      "reachDescription": "Trishuli River Corridor km 31.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5486,
+          "spectralDiff": 0.1097,
+          "preRgb": [
+            132,
+            133,
+            116
+          ],
+          "postRgb": [
+            97,
+            102,
+            98
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1587.9
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-032",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21381,
+      "lon": 85.355,
+      "elevationM": 1552.4,
+      "chainageM": 32723,
+      "reachDescription": "Trishuli River Corridor km 32.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8122,
+          "spectralDiff": 0.237,
+          "preRgb": [
+            84,
+            97,
+            83
+          ],
+          "postRgb": [
+            144,
+            155,
+            147
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1552.4
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-054",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27344,
+      "lon": 85.38071,
+      "elevationM": 2147,
+      "chainageM": 24537,
+      "reachDescription": "Valley Wall Flank +367m (Reach km 24.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.421,
+          "spectralDiff": 0.09,
+          "preRgb": [
+            67,
+            84,
+            66
+          ],
+          "postRgb": [
+            96,
+            99,
+            91
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 367,
+          "hydroRiskScore": 0.0909,
+          "channelBedStageM": 1779.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-092",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18962,
+      "lon": 85.35339,
+      "elevationM": 1773,
+      "chainageM": 35434,
+      "reachDescription": "Valley Wall Flank +289m (Reach km 35.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1308,
+          "spectralDiff": 0.0409,
+          "preRgb": [
+            60,
+            74,
+            63
+          ],
+          "postRgb": [
+            68,
+            85,
+            75
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 289,
+          "hydroRiskScore": 0.1019,
+          "channelBedStageM": 1484
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-031",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21598,
+      "lon": 85.35497,
+      "elevationM": 1558.2,
+      "chainageM": 32459,
+      "reachDescription": "Trishuli River Corridor km 32.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8226,
+          "spectralDiff": 0.2224,
+          "preRgb": [
+            70,
+            85,
+            72
+          ],
+          "postRgb": [
+            131,
+            137,
+            128
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1558.2
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-098",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.17913,
+      "lon": 85.3494,
+      "elevationM": 1737,
+      "chainageM": 37160,
+      "reachDescription": "Valley Wall Flank +263m (Reach km 37.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0163,
+          "spectralDiff": 0.0034,
+          "preRgb": [
+            52,
+            72,
+            62
+          ],
+          "postRgb": [
+            52,
+            72,
+            60
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 263,
+          "hydroRiskScore": 0.107,
+          "channelBedStageM": 1474.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-013",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.25454,
+      "lon": 85.36477,
+      "elevationM": 1691.4,
+      "chainageM": 27244,
+      "reachDescription": "Trishuli River Corridor km 27.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6078,
+          "spectralDiff": 0.1198,
+          "preRgb": [
+            134,
+            141,
+            121
+          ],
+          "postRgb": [
+            101,
+            105,
+            99
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1691.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  }
+]);
+
+export const EVALUATION_ALL_SAMPLES = Object.freeze([
+  {
+    "sampleId": "BK-001",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27962,
+      "lon": 85.37877,
+      "elevationM": 1818.4,
+      "chainageM": 23705,
+      "reachDescription": "Trishuli River Corridor km 23.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4038,
+          "spectralDiff": 0.1262,
+          "preRgb": [
+            106,
+            101,
+            89
+          ],
+          "postRgb": [
+            131,
+            136,
+            126
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1818.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-002",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2777,
+      "lon": 85.37665,
+      "elevationM": 1796.5,
+      "chainageM": 24020,
+      "reachDescription": "Trishuli River Corridor km 24.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4208,
+          "spectralDiff": 0.0705,
+          "preRgb": [
+            159,
+            173,
+            153
+          ],
+          "postRgb": [
+            150,
+            149,
+            132
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1796.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-003",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27553,
+      "lon": 85.37669,
+      "elevationM": 1777.4,
+      "chainageM": 24260,
+      "reachDescription": "Trishuli River Corridor km 24.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0855,
+          "spectralDiff": 0.0193,
+          "preRgb": [
+            127,
+            126,
+            105
+          ],
+          "postRgb": [
+            133,
+            128,
+            113
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1777.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-004",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27336,
+      "lon": 85.37641,
+      "elevationM": 1779.8,
+      "chainageM": 24537,
+      "reachDescription": "Trishuli River Corridor km 24.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5201,
+          "spectralDiff": 0.147,
+          "preRgb": [
+            103,
+            111,
+            96
+          ],
+          "postRgb": [
+            143,
+            145,
+            133
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1779.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-005",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.27119,
+      "lon": 85.37614,
+      "elevationM": 1780.2,
+      "chainageM": 24814,
+      "reachDescription": "Trishuli River Corridor km 24.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.7674,
+          "spectralDiff": 0.2134,
+          "preRgb": [
+            78,
+            90,
+            73
+          ],
+          "postRgb": [
+            136,
+            141,
+            127
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1780.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-006",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26903,
+      "lon": 85.37617,
+      "elevationM": 1779.5,
+      "chainageM": 25054,
+      "reachDescription": "Trishuli River Corridor km 25.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0976,
+          "spectralDiff": 0.0186,
+          "preRgb": [
+            125,
+            132,
+            112
+          ],
+          "postRgb": [
+            133,
+            133,
+            118
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1779.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-007",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26685,
+      "lon": 85.37529,
+      "elevationM": 1759.9,
+      "chainageM": 25357,
+      "reachDescription": "Trishuli River Corridor km 25.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3019,
+          "spectralDiff": 0.086,
+          "preRgb": [
+            112,
+            118,
+            97
+          ],
+          "postRgb": [
+            134,
+            136,
+            122
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1759.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Gyirong border gate",
+        "summary": "Public footage geolocated at the Nepal-China border crossing.",
+        "sourceUrl": "https://www.youtube.com/watch?v=qlE51Eu0thk",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-008",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26466,
+      "lon": 85.37318,
+      "elevationM": 1745.1,
+      "chainageM": 25684,
+      "reachDescription": "Trishuli River Corridor km 25.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.7616,
+          "spectralDiff": 0.1951,
+          "preRgb": [
+            60,
+            74,
+            67
+          ],
+          "postRgb": [
+            119,
+            122,
+            110
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1745.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-009",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26248,
+      "lon": 85.37199,
+      "elevationM": 1725.5,
+      "chainageM": 25973,
+      "reachDescription": "Trishuli River Corridor km 26.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.2649,
+          "preRgb": [
+            57,
+            73,
+            61
+          ],
+          "postRgb": [
+            134,
+            136,
+            123
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1725.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-010",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.26029,
+      "lon": 85.36958,
+      "elevationM": 1726.2,
+      "chainageM": 26313,
+      "reachDescription": "Trishuli River Corridor km 26.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6295,
+          "spectralDiff": 0.1525,
+          "preRgb": [
+            67,
+            85,
+            66
+          ],
+          "postRgb": [
+            112,
+            117,
+            105
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1726.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-011",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2589,
+      "lon": 85.36715,
+      "elevationM": 1714,
+      "chainageM": 26640,
+      "reachDescription": "Trishuli River Corridor km 26.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2137,
+          "spectralDiff": 0.0427,
+          "preRgb": [
+            147,
+            150,
+            131
+          ],
+          "postRgb": [
+            135,
+            138,
+            122
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1714
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-012",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.25672,
+      "lon": 85.36596,
+      "elevationM": 1706.8,
+      "chainageM": 26954,
+      "reachDescription": "Trishuli River Corridor km 27.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3711,
+          "spectralDiff": 0.0742,
+          "preRgb": [
+            133,
+            131,
+            115
+          ],
+          "postRgb": [
+            108,
+            111,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1706.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-013",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.25454,
+      "lon": 85.36477,
+      "elevationM": 1691.4,
+      "chainageM": 27244,
+      "reachDescription": "Trishuli River Corridor km 27.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6078,
+          "spectralDiff": 0.1198,
+          "preRgb": [
+            134,
+            141,
+            121
+          ],
+          "postRgb": [
+            101,
+            105,
+            99
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1691.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-014",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.25238,
+      "lon": 85.36511,
+      "elevationM": 1689.4,
+      "chainageM": 27521,
+      "reachDescription": "Trishuli River Corridor km 27.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1006,
+          "spectralDiff": 0.0148,
+          "preRgb": [
+            96,
+            109,
+            96
+          ],
+          "postRgb": [
+            102,
+            107,
+            100
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1689.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-015",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2502,
+      "lon": 85.36423,
+      "elevationM": 1669.5,
+      "chainageM": 27798,
+      "reachDescription": "Trishuli River Corridor km 27.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3735,
+          "spectralDiff": 0.0615,
+          "preRgb": [
+            60,
+            81,
+            66
+          ],
+          "postRgb": [
+            82,
+            87,
+            84
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1669.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-016",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.24803,
+      "lon": 85.36365,
+      "elevationM": 1673.2,
+      "chainageM": 28088,
+      "reachDescription": "Trishuli River Corridor km 28.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.2314,
+          "preRgb": [
+            145,
+            159,
+            139
+          ],
+          "postRgb": [
+            86,
+            92,
+            87
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1673.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-017",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.24584,
+      "lon": 85.36154,
+      "elevationM": 1672.1,
+      "chainageM": 28415,
+      "reachDescription": "Trishuli River Corridor km 28.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0668,
+          "spectralDiff": 0.0184,
+          "preRgb": [
+            105,
+            112,
+            97
+          ],
+          "postRgb": [
+            102,
+            108,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1672.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-018",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.24419,
+      "lon": 85.35912,
+      "elevationM": 1680.3,
+      "chainageM": 28755,
+      "reachDescription": "Trishuli River Corridor km 28.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1786,
+          "spectralDiff": 0.0558,
+          "preRgb": [
+            116,
+            121,
+            105
+          ],
+          "postRgb": [
+            126,
+            134,
+            126
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1680.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-019",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.242,
+      "lon": 85.35763,
+      "elevationM": 1645.5,
+      "chainageM": 29057,
+      "reachDescription": "Trishuli River Corridor km 29.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4528,
+          "spectralDiff": 0.0904,
+          "preRgb": [
+            107,
+            114,
+            99
+          ],
+          "postRgb": [
+            82,
+            88,
+            81
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1645.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-020",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23984,
+      "lon": 85.35797,
+      "elevationM": 1645.3,
+      "chainageM": 29334,
+      "reachDescription": "Trishuli River Corridor km 29.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8566,
+          "spectralDiff": 0.1713,
+          "preRgb": [
+            142,
+            146,
+            129
+          ],
+          "postRgb": [
+            93,
+            98,
+            95
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1645.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Timure evidence cluster",
+        "summary": "Five geolocated public viewpoints document the flood passage.",
+        "sourceUrl": "https://www.youtube.com/watch?v=gb8cGELvskA",
+        "witnessSeverityScore": 0.95
+      }
+    }
+  },
+  {
+    "sampleId": "BK-021",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23767,
+      "lon": 85.35769,
+      "elevationM": 1640.9,
+      "chainageM": 29611,
+      "reachDescription": "Trishuli River Corridor km 29.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5598,
+          "spectralDiff": 0.1021,
+          "preRgb": [
+            103,
+            117,
+            100
+          ],
+          "postRgb": [
+            79,
+            84,
+            80
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1640.9
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-022",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23551,
+      "lon": 85.35834,
+      "elevationM": 1642.5,
+      "chainageM": 29876,
+      "reachDescription": "Trishuli River Corridor km 29.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2338,
+          "spectralDiff": 0.0206,
+          "preRgb": [
+            61,
+            81,
+            70
+          ],
+          "postRgb": [
+            67,
+            72,
+            70
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1642.5
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-023",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.23336,
+      "lon": 85.3596,
+      "elevationM": 1644.8,
+      "chainageM": 30166,
+      "reachDescription": "Trishuli River Corridor km 30.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2232,
+          "spectralDiff": 0.0264,
+          "preRgb": [
+            58,
+            76,
+            65
+          ],
+          "postRgb": [
+            67,
+            73,
+            73
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1644.8
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-024",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.2312,
+      "lon": 85.36024,
+      "elevationM": 1640.7,
+      "chainageM": 30455,
+      "reachDescription": "Trishuli River Corridor km 30.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.181,
+          "spectralDiff": 0.0265,
+          "preRgb": [
+            88,
+            105,
+            88
+          ],
+          "postRgb": [
+            92,
+            97,
+            96
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1640.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-025",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22905,
+      "lon": 85.36088,
+      "elevationM": 1619.7,
+      "chainageM": 30720,
+      "reachDescription": "Trishuli River Corridor km 30.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.931,
+          "spectralDiff": 0.1862,
+          "preRgb": [
+            153,
+            161,
+            140
+          ],
+          "postRgb": [
+            102,
+            107,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1619.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-026",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22688,
+      "lon": 85.36092,
+      "elevationM": 1605,
+      "chainageM": 30985,
+      "reachDescription": "Trishuli River Corridor km 31.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9313,
+          "spectralDiff": 0.1863,
+          "preRgb": [
+            135,
+            146,
+            125
+          ],
+          "postRgb": [
+            85,
+            92,
+            87
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1605
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-027",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22472,
+      "lon": 85.36126,
+      "elevationM": 1587.9,
+      "chainageM": 31238,
+      "reachDescription": "Trishuli River Corridor km 31.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5486,
+          "spectralDiff": 0.1097,
+          "preRgb": [
+            132,
+            133,
+            116
+          ],
+          "postRgb": [
+            97,
+            102,
+            98
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1587.9
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-028",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22254,
+      "lon": 85.36037,
+      "elevationM": 1585.7,
+      "chainageM": 31515,
+      "reachDescription": "Trishuli River Corridor km 31.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1179,
+          "spectralDiff": 0.0295,
+          "preRgb": [
+            114,
+            125,
+            109
+          ],
+          "postRgb": [
+            120,
+            128,
+            122
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1585.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-029",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.22035,
+      "lon": 85.35796,
+      "elevationM": 1590.1,
+      "chainageM": 31854,
+      "reachDescription": "Trishuli River Corridor km 31.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5686,
+          "spectralDiff": 0.13,
+          "preRgb": [
+            71,
+            93,
+            75
+          ],
+          "postRgb": [
+            112,
+            118,
+            109
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1590.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-030",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21816,
+      "lon": 85.35647,
+      "elevationM": 1574.3,
+      "chainageM": 32156,
+      "reachDescription": "Trishuli River Corridor km 32.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5055,
+          "spectralDiff": 0.1442,
+          "preRgb": [
+            81,
+            92,
+            86
+          ],
+          "postRgb": [
+            121,
+            130,
+            120
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1574.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-031",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21598,
+      "lon": 85.35497,
+      "elevationM": 1558.2,
+      "chainageM": 32459,
+      "reachDescription": "Trishuli River Corridor km 32.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8226,
+          "spectralDiff": 0.2224,
+          "preRgb": [
+            70,
+            85,
+            72
+          ],
+          "postRgb": [
+            131,
+            137,
+            128
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1558.2
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-032",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21381,
+      "lon": 85.355,
+      "elevationM": 1552.4,
+      "chainageM": 32723,
+      "reachDescription": "Trishuli River Corridor km 32.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8122,
+          "spectralDiff": 0.237,
+          "preRgb": [
+            84,
+            97,
+            83
+          ],
+          "postRgb": [
+            144,
+            155,
+            147
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1552.4
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-033",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.21164,
+      "lon": 85.35443,
+      "elevationM": 1546.4,
+      "chainageM": 32988,
+      "reachDescription": "Trishuli River Corridor km 33.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4106,
+          "spectralDiff": 0.1092,
+          "preRgb": [
+            99,
+            110,
+            95
+          ],
+          "postRgb": [
+            132,
+            135,
+            121
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1546.4
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-034",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20947,
+      "lon": 85.35415,
+      "elevationM": 1541.1,
+      "chainageM": 33241,
+      "reachDescription": "Trishuli River Corridor km 33.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0777,
+          "spectralDiff": 0.0157,
+          "preRgb": [
+            123,
+            133,
+            117
+          ],
+          "postRgb": [
+            127,
+            133,
+            124
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1541.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-035",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20731,
+      "lon": 85.3548,
+      "elevationM": 1536.1,
+      "chainageM": 33506,
+      "reachDescription": "Trishuli River Corridor km 33.5"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3974,
+          "preRgb": [
+            79,
+            90,
+            76
+          ],
+          "postRgb": [
+            179,
+            189,
+            181
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1536.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-036",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20514,
+      "lon": 85.35422,
+      "elevationM": 1530.3,
+      "chainageM": 33770,
+      "reachDescription": "Trishuli River Corridor km 33.8"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6028,
+          "spectralDiff": 0.1884,
+          "preRgb": [
+            126,
+            131,
+            116
+          ],
+          "postRgb": [
+            168,
+            179,
+            170
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1530.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-037",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20296,
+      "lon": 85.35303,
+      "elevationM": 1526.2,
+      "chainageM": 34060,
+      "reachDescription": "Trishuli River Corridor km 34.1"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9738,
+          "spectralDiff": 0.2958,
+          "preRgb": [
+            119,
+            129,
+            111
+          ],
+          "postRgb": [
+            192,
+            200,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1526.2
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-038",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.20079,
+      "lon": 85.35276,
+      "elevationM": 1523.5,
+      "chainageM": 34313,
+      "reachDescription": "Trishuli River Corridor km 34.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4356,
+          "preRgb": [
+            78,
+            91,
+            82
+          ],
+          "postRgb": [
+            191,
+            200,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1523.5
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-039",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19862,
+      "lon": 85.35218,
+      "elevationM": 1508,
+      "chainageM": 34577,
+      "reachDescription": "Trishuli River Corridor km 34.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.5095,
+          "preRgb": [
+            56,
+            72,
+            67
+          ],
+          "postRgb": [
+            192,
+            200,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1508
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-040",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19643,
+      "lon": 85.35038,
+      "elevationM": 1496.7,
+      "chainageM": 34892,
+      "reachDescription": "Trishuli River Corridor km 34.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3418,
+          "preRgb": [
+            114,
+            120,
+            104
+          ],
+          "postRgb": [
+            198,
+            203,
+            198
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1496.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-041",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19426,
+      "lon": 85.3498,
+      "elevationM": 1493.6,
+      "chainageM": 35157,
+      "reachDescription": "Trishuli River Corridor km 35.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3295,
+          "preRgb": [
+            93,
+            99,
+            90
+          ],
+          "postRgb": [
+            174,
+            184,
+            176
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1493.6
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-042",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.19208,
+      "lon": 85.34892,
+      "elevationM": 1484,
+      "chainageM": 35434,
+      "reachDescription": "Trishuli River Corridor km 35.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9236,
+          "spectralDiff": 0.2822,
+          "preRgb": [
+            99,
+            110,
+            96
+          ],
+          "postRgb": [
+            168,
+            180,
+            174
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1484
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-043",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.1899,
+      "lon": 85.34773,
+      "elevationM": 1481,
+      "chainageM": 35724,
+      "reachDescription": "Trishuli River Corridor km 35.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5918,
+          "spectralDiff": 0.1529,
+          "preRgb": [
+            74,
+            88,
+            79
+          ],
+          "postRgb": [
+            120,
+            124,
+            114
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1481
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-044",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18771,
+      "lon": 85.34593,
+      "elevationM": 1475.5,
+      "chainageM": 36038,
+      "reachDescription": "Trishuli River Corridor km 36.0"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5943,
+          "spectralDiff": 0.1585,
+          "preRgb": [
+            82,
+            95,
+            84
+          ],
+          "postRgb": [
+            129,
+            133,
+            120
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1475.5
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-045",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18553,
+      "lon": 85.34505,
+      "elevationM": 1467.4,
+      "chainageM": 36316,
+      "reachDescription": "Trishuli River Corridor km 36.3"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1326,
+          "spectralDiff": 0.0284,
+          "preRgb": [
+            119,
+            128,
+            112
+          ],
+          "postRgb": [
+            130,
+            132,
+            119
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1467.4
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-046",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18335,
+      "lon": 85.34355,
+      "elevationM": 1466.3,
+      "chainageM": 36618,
+      "reachDescription": "Trishuli River Corridor km 36.6"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3895,
+          "spectralDiff": 0.069,
+          "preRgb": [
+            143,
+            153,
+            135
+          ],
+          "postRgb": [
+            129,
+            130,
+            118
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.9,
+          "channelBedStageM": 1466.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-047",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.18117,
+      "lon": 85.34236,
+      "elevationM": 1464.2,
+      "chainageM": 36907,
+      "reachDescription": "Trishuli River Corridor km 36.9"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3935,
+          "spectralDiff": 0.1035,
+          "preRgb": [
+            97,
+            106,
+            95
+          ],
+          "postRgb": [
+            128,
+            130,
+            119
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.92,
+          "channelBedStageM": 1464.2
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-048",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.17901,
+      "lon": 85.3427,
+      "elevationM": 1474.1,
+      "chainageM": 37160,
+      "reachDescription": "Trishuli River Corridor km 37.2"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2565,
+          "spectralDiff": 0.0559,
+          "preRgb": [
+            111,
+            125,
+            110
+          ],
+          "postRgb": [
+            133,
+            135,
+            121
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.94,
+          "channelBedStageM": 1474.1
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-049",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.17684,
+      "lon": 85.34274,
+      "elevationM": 1456.3,
+      "chainageM": 37400,
+      "reachDescription": "Trishuli River Corridor km 37.4"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5515,
+          "spectralDiff": 0.1366,
+          "preRgb": [
+            92,
+            108,
+            95
+          ],
+          "postRgb": [
+            136,
+            138,
+            125
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.96,
+          "channelBedStageM": 1456.3
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-050",
+    "label": 1,
+    "labelName": "FLOOD",
+    "location": {
+      "lat": 28.17467,
+      "lon": 85.34216,
+      "elevationM": 1431.7,
+      "chainageM": 37665,
+      "reachDescription": "Trishuli River Corridor km 37.7"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8227,
+          "spectralDiff": 0.1923,
+          "preRgb": [
+            64,
+            85,
+            70
+          ],
+          "postRgb": [
+            124,
+            125,
+            117
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 0,
+          "hydroRiskScore": 0.98,
+          "channelBedStageM": 1431.7
+        }
+      },
+      "groundWitness": {
+        "source": "None",
+        "sourceType": "ground_witness",
+        "timestamp": null,
+        "license": null,
+        "provenance": "unobserved",
+        "synthetic": false,
+        "hasReport": false,
+        "reportTitle": null,
+        "summary": null,
+        "sourceUrl": null,
+        "witnessSeverityScore": null
+      }
+    }
+  },
+  {
+    "sampleId": "BK-051",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.28251,
+      "lon": 85.37679,
+      "elevationM": 1938,
+      "chainageM": 23705,
+      "reachDescription": "Valley Wall Flank +120m (Reach km 23.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9842,
+          "spectralDiff": 0.2686,
+          "preRgb": [
+            65,
+            82,
+            65
+          ],
+          "postRgb": [
+            138,
+            147,
+            133
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 120,
+          "hydroRiskScore": 0.175,
+          "channelBedStageM": 1818.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-052",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27779,
+      "lon": 85.38175,
+      "elevationM": 2086,
+      "chainageM": 24020,
+      "reachDescription": "Valley Wall Flank +289m (Reach km 24.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3691,
+          "spectralDiff": 0.0872,
+          "preRgb": [
+            52,
+            67,
+            56
+          ],
+          "postRgb": [
+            76,
+            87,
+            80
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 289,
+          "hydroRiskScore": 0.1019,
+          "channelBedStageM": 1796.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-053",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27363,
+      "lon": 85.37027,
+      "elevationM": 1975,
+      "chainageM": 24260,
+      "reachDescription": "Valley Wall Flank +198m (Reach km 24.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0404,
+          "spectralDiff": 0.011,
+          "preRgb": [
+            63,
+            80,
+            60
+          ],
+          "postRgb": [
+            64,
+            81,
+            65
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 198,
+          "hydroRiskScore": 0.1258,
+          "channelBedStageM": 1777.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-054",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27344,
+      "lon": 85.38071,
+      "elevationM": 2147,
+      "chainageM": 24537,
+      "reachDescription": "Valley Wall Flank +367m (Reach km 24.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.421,
+          "spectralDiff": 0.09,
+          "preRgb": [
+            67,
+            84,
+            66
+          ],
+          "postRgb": [
+            96,
+            99,
+            91
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 367,
+          "hydroRiskScore": 0.0909,
+          "channelBedStageM": 1779.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-055",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27108,
+      "lon": 85.37024,
+      "elevationM": 2056,
+      "chainageM": 24814,
+      "reachDescription": "Valley Wall Flank +276m (Reach km 24.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2775,
+          "spectralDiff": 0.0785,
+          "preRgb": [
+            76,
+            88,
+            71
+          ],
+          "postRgb": [
+            96,
+            107,
+            92
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 276,
+          "hydroRiskScore": 0.1043,
+          "channelBedStageM": 1780.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-056",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.26816,
+      "lon": 85.37956,
+      "elevationM": 1965,
+      "chainageM": 25054,
+      "reachDescription": "Valley Wall Flank +185m (Reach km 25.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1481,
+          "spectralDiff": 0.0297,
+          "preRgb": [
+            36,
+            52,
+            51
+          ],
+          "postRgb": [
+            46,
+            62,
+            54
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 185,
+          "hydroRiskScore": 0.1311,
+          "channelBedStageM": 1779.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-057",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.27062,
+      "lon": 85.37186,
+      "elevationM": 2114,
+      "chainageM": 25357,
+      "reachDescription": "Valley Wall Flank +354m (Reach km 25.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0595,
+          "spectralDiff": 0.0186,
+          "preRgb": [
+            96,
+            98,
+            83
+          ],
+          "postRgb": [
+            95,
+            103,
+            92
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 354,
+          "hydroRiskScore": 0.0924,
+          "channelBedStageM": 1759.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-058",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25972,
+      "lon": 85.37771,
+      "elevationM": 2008,
+      "chainageM": 25684,
+      "reachDescription": "Valley Wall Flank +263m (Reach km 25.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1639,
+          "spectralDiff": 0.0491,
+          "preRgb": [
+            36,
+            53,
+            48
+          ],
+          "postRgb": [
+            47,
+            70,
+            57
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 263,
+          "hydroRiskScore": 0.107,
+          "channelBedStageM": 1745.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-059",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.26565,
+      "lon": 85.36908,
+      "elevationM": 1898,
+      "chainageM": 25973,
+      "reachDescription": "Valley Wall Flank +172m (Reach km 26.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1679,
+          "spectralDiff": 0.0336,
+          "preRgb": [
+            64,
+            85,
+            67
+          ],
+          "postRgb": [
+            55,
+            75,
+            59
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 172,
+          "hydroRiskScore": 0.1372,
+          "channelBedStageM": 1725.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-060",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25455,
+      "lon": 85.37094,
+      "elevationM": 2067,
+      "chainageM": 26313,
+      "reachDescription": "Valley Wall Flank +341m (Reach km 26.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0605,
+          "spectralDiff": 0.0189,
+          "preRgb": [
+            53,
+            70,
+            57
+          ],
+          "postRgb": [
+            51,
+            78,
+            60
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 341,
+          "hydroRiskScore": 0.094,
+          "channelBedStageM": 1726.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-061",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.26057,
+      "lon": 85.36407,
+      "elevationM": 1964,
+      "chainageM": 26640,
+      "reachDescription": "Valley Wall Flank +250m (Reach km 26.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0677,
+          "spectralDiff": 0.0144,
+          "preRgb": [
+            82,
+            98,
+            75
+          ],
+          "postRgb": [
+            75,
+            96,
+            76
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 250,
+          "hydroRiskScore": 0.11,
+          "channelBedStageM": 1714
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-062",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25347,
+      "lon": 85.36989,
+      "elevationM": 1866,
+      "chainageM": 26954,
+      "reachDescription": "Valley Wall Flank +159m (Reach km 27.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0742,
+          "spectralDiff": 0.0232,
+          "preRgb": [
+            68,
+            87,
+            72
+          ],
+          "postRgb": [
+            70,
+            99,
+            76
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 159,
+          "hydroRiskScore": 0.1443,
+          "channelBedStageM": 1706.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-063",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25622,
+      "lon": 85.35828,
+      "elevationM": 2019,
+      "chainageM": 27244,
+      "reachDescription": "Valley Wall Flank +328m (Reach km 27.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0521,
+          "spectralDiff": 0.011,
+          "preRgb": [
+            65,
+            84,
+            66
+          ],
+          "postRgb": [
+            64,
+            80,
+            70
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 328,
+          "hydroRiskScore": 0.0957,
+          "channelBedStageM": 1691.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-064",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.25033,
+      "lon": 85.36889,
+      "elevationM": 1926,
+      "chainageM": 27521,
+      "reachDescription": "Valley Wall Flank +237m (Reach km 27.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0275,
+          "spectralDiff": 0.0086,
+          "preRgb": [
+            41,
+            60,
+            56
+          ],
+          "postRgb": [
+            43,
+            64,
+            55
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 237,
+          "hydroRiskScore": 0.1133,
+          "channelBedStageM": 1689.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-065",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.24852,
+      "lon": 85.35857,
+      "elevationM": 1816,
+      "chainageM": 27798,
+      "reachDescription": "Valley Wall Flank +146m (Reach km 27.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.5056,
+          "spectralDiff": 0.1401,
+          "preRgb": [
+            75,
+            89,
+            73
+          ],
+          "postRgb": [
+            110,
+            121,
+            113
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 146,
+          "hydroRiskScore": 0.1527,
+          "channelBedStageM": 1669.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-066",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2458,
+      "lon": 85.36635,
+      "elevationM": 1988,
+      "chainageM": 28088,
+      "reachDescription": "Valley Wall Flank +315m (Reach km 28.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.2635,
+          "spectralDiff": 0.0505,
+          "preRgb": [
+            43,
+            63,
+            59
+          ],
+          "postRgb": [
+            59,
+            75,
+            68
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 315,
+          "hydroRiskScore": 0.0976,
+          "channelBedStageM": 1673.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-067",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2496,
+      "lon": 85.35809,
+      "elevationM": 1896,
+      "chainageM": 28415,
+      "reachDescription": "Valley Wall Flank +224m (Reach km 28.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.6827,
+          "spectralDiff": 0.1596,
+          "preRgb": [
+            53,
+            75,
+            62
+          ],
+          "postRgb": [
+            99,
+            110,
+            104
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 224,
+          "hydroRiskScore": 0.117,
+          "channelBedStageM": 1672.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-068",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23995,
+      "lon": 85.36431,
+      "elevationM": 1813,
+      "chainageM": 28755,
+      "reachDescription": "Valley Wall Flank +133m (Reach km 28.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3236,
+          "spectralDiff": 0.0539,
+          "preRgb": [
+            39,
+            58,
+            54
+          ],
+          "postRgb": [
+            57,
+            68,
+            67
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 133,
+          "hydroRiskScore": 0.1628,
+          "channelBedStageM": 1680.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-069",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.24312,
+      "lon": 85.35348,
+      "elevationM": 1948,
+      "chainageM": 29057,
+      "reachDescription": "Valley Wall Flank +302m (Reach km 29.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1633,
+          "spectralDiff": 0.0285,
+          "preRgb": [
+            75,
+            94,
+            80
+          ],
+          "postRgb": [
+            68,
+            83,
+            76
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 302,
+          "hydroRiskScore": 0.0997,
+          "channelBedStageM": 1645.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-070",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23832,
+      "lon": 85.36367,
+      "elevationM": 1856,
+      "chainageM": 29334,
+      "reachDescription": "Valley Wall Flank +211m (Reach km 29.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1599,
+          "spectralDiff": 0.018,
+          "preRgb": [
+            52,
+            72,
+            60
+          ],
+          "postRgb": [
+            57,
+            69,
+            66
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 211,
+          "hydroRiskScore": 0.1211,
+          "channelBedStageM": 1645.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-071",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23761,
+      "lon": 85.35419,
+      "elevationM": 1761,
+      "chainageM": 29611,
+      "reachDescription": "Valley Wall Flank +120m (Reach km 29.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3162,
+          "spectralDiff": 0.0924,
+          "preRgb": [
+            77,
+            89,
+            76
+          ],
+          "postRgb": [
+            97,
+            110,
+            105
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 120,
+          "hydroRiskScore": 0.175,
+          "channelBedStageM": 1640.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-072",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2381,
+      "lon": 85.36273,
+      "elevationM": 1932,
+      "chainageM": 29876,
+      "reachDescription": "Valley Wall Flank +289m (Reach km 29.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3727,
+          "spectralDiff": 0.0745,
+          "preRgb": [
+            51,
+            71,
+            60
+          ],
+          "postRgb": [
+            33,
+            47,
+            46
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 289,
+          "hydroRiskScore": 0.1019,
+          "channelBedStageM": 1642.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-073",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23,
+      "lon": 85.3538,
+      "elevationM": 1843,
+      "chainageM": 30166,
+      "reachDescription": "Valley Wall Flank +198m (Reach km 30.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1309,
+          "spectralDiff": 0.0214,
+          "preRgb": [
+            75,
+            97,
+            75
+          ],
+          "postRgb": [
+            77,
+            91,
+            84
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 198,
+          "hydroRiskScore": 0.1258,
+          "channelBedStageM": 1644.8
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-074",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23242,
+      "lon": 85.36436,
+      "elevationM": 2008,
+      "chainageM": 30455,
+      "reachDescription": "Valley Wall Flank +367m (Reach km 30.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3148,
+          "spectralDiff": 0.0984,
+          "preRgb": [
+            78,
+            86,
+            71
+          ],
+          "postRgb": [
+            99,
+            109,
+            103
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 367,
+          "hydroRiskScore": 0.0909,
+          "channelBedStageM": 1640.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-075",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.23057,
+      "lon": 85.35518,
+      "elevationM": 1896,
+      "chainageM": 30720,
+      "reachDescription": "Valley Wall Flank +276m (Reach km 30.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1403,
+          "spectralDiff": 0.0187,
+          "preRgb": [
+            66,
+            87,
+            71
+          ],
+          "postRgb": [
+            71,
+            84,
+            77
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 276,
+          "hydroRiskScore": 0.1043,
+          "channelBedStageM": 1619.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-076",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.22691,
+      "lon": 85.36442,
+      "elevationM": 1790,
+      "chainageM": 30985,
+      "reachDescription": "Valley Wall Flank +185m (Reach km 31.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.3356,
+          "spectralDiff": 0.1049,
+          "preRgb": [
+            102,
+            107,
+            86
+          ],
+          "postRgb": [
+            121,
+            131,
+            123
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 185,
+          "hydroRiskScore": 0.1311,
+          "channelBedStageM": 1605
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-077",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.22603,
+      "lon": 85.35633,
+      "elevationM": 1942,
+      "chainageM": 31238,
+      "reachDescription": "Valley Wall Flank +354m (Reach km 31.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.4787,
+          "spectralDiff": 0.1053,
+          "preRgb": [
+            58,
+            81,
+            66
+          ],
+          "postRgb": [
+            89,
+            102,
+            95
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 354,
+          "hydroRiskScore": 0.0924,
+          "channelBedStageM": 1587.9
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-078",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2176,
+      "lon": 85.3649,
+      "elevationM": 1849,
+      "chainageM": 31515,
+      "reachDescription": "Valley Wall Flank +263m (Reach km 31.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3836,
+          "preRgb": [
+            32,
+            51,
+            49
+          ],
+          "postRgb": [
+            137,
+            147,
+            141
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 263,
+          "hydroRiskScore": 0.107,
+          "channelBedStageM": 1585.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-079",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.22307,
+      "lon": 85.35463,
+      "elevationM": 1762,
+      "chainageM": 31854,
+      "reachDescription": "Valley Wall Flank +172m (Reach km 31.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.7786,
+          "spectralDiff": 0.2025,
+          "preRgb": [
+            70,
+            91,
+            72
+          ],
+          "postRgb": [
+            125,
+            135,
+            128
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 172,
+          "hydroRiskScore": 0.1372,
+          "channelBedStageM": 1590.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-080",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.2144,
+      "lon": 85.36102,
+      "elevationM": 1915,
+      "chainageM": 32156,
+      "reachDescription": "Valley Wall Flank +341m (Reach km 32.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3096,
+          "preRgb": [
+            67,
+            84,
+            66
+          ],
+          "postRgb": [
+            146,
+            158,
+            149
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 341,
+          "hydroRiskScore": 0.094,
+          "channelBedStageM": 1574.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-081",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21688,
+      "lon": 85.35159,
+      "elevationM": 1808,
+      "chainageM": 32459,
+      "reachDescription": "Valley Wall Flank +250m (Reach km 32.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.9381,
+          "spectralDiff": 0.1876,
+          "preRgb": [
+            119,
+            132,
+            123
+          ],
+          "postRgb": [
+            69,
+            87,
+            74
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 250,
+          "hydroRiskScore": 0.11,
+          "channelBedStageM": 1558.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-082",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21249,
+      "lon": 85.35993,
+      "elevationM": 1711,
+      "chainageM": 32723,
+      "reachDescription": "Valley Wall Flank +159m (Reach km 32.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3201,
+          "preRgb": [
+            73,
+            86,
+            72
+          ],
+          "postRgb": [
+            154,
+            165,
+            157
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 159,
+          "hydroRiskScore": 0.1443,
+          "channelBedStageM": 1552.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-083",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21336,
+      "lon": 85.34796,
+      "elevationM": 1874,
+      "chainageM": 32988,
+      "reachDescription": "Valley Wall Flank +328m (Reach km 33.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.8372,
+          "spectralDiff": 0.2314,
+          "preRgb": [
+            73,
+            93,
+            77
+          ],
+          "postRgb": [
+            133,
+            149,
+            139
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 328,
+          "hydroRiskScore": 0.0957,
+          "channelBedStageM": 1546.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-084",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.21073,
+      "lon": 85.35826,
+      "elevationM": 1778,
+      "chainageM": 33241,
+      "reachDescription": "Valley Wall Flank +237m (Reach km 33.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4378,
+          "preRgb": [
+            48,
+            69,
+            60
+          ],
+          "postRgb": [
+            166,
+            177,
+            169
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 237,
+          "hydroRiskScore": 0.1133,
+          "channelBedStageM": 1541.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-085",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20726,
+      "lon": 85.3489,
+      "elevationM": 1682,
+      "chainageM": 33506,
+      "reachDescription": "Valley Wall Flank +146m (Reach km 33.5)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4843,
+          "preRgb": [
+            60,
+            80,
+            68
+          ],
+          "postRgb": [
+            188,
+            198,
+            193
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 146,
+          "hydroRiskScore": 0.1527,
+          "channelBedStageM": 1536.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-086",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20347,
+      "lon": 85.3573,
+      "elevationM": 1845,
+      "chainageM": 33770,
+      "reachDescription": "Valley Wall Flank +315m (Reach km 33.8)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.5298,
+          "preRgb": [
+            42,
+            63,
+            57
+          ],
+          "postRgb": [
+            185,
+            195,
+            188
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 315,
+          "hydroRiskScore": 0.0976,
+          "channelBedStageM": 1530.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-087",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20427,
+      "lon": 85.3481,
+      "elevationM": 1750,
+      "chainageM": 34060,
+      "reachDescription": "Valley Wall Flank +224m (Reach km 34.1)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4354,
+          "preRgb": [
+            81,
+            96,
+            79
+          ],
+          "postRgb": [
+            193,
+            202,
+            194
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 224,
+          "hydroRiskScore": 0.117,
+          "channelBedStageM": 1526.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-088",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19907,
+      "lon": 85.35923,
+      "elevationM": 1657,
+      "chainageM": 34313,
+      "reachDescription": "Valley Wall Flank +133m (Reach km 34.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.5396,
+          "preRgb": [
+            42,
+            63,
+            56
+          ],
+          "postRgb": [
+            187,
+            197,
+            190
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 133,
+          "hydroRiskScore": 0.1628,
+          "channelBedStageM": 1523.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-089",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.20134,
+      "lon": 85.34885,
+      "elevationM": 1810,
+      "chainageM": 34577,
+      "reachDescription": "Valley Wall Flank +302m (Reach km 34.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3519,
+          "preRgb": [
+            68,
+            87,
+            68
+          ],
+          "postRgb": [
+            159,
+            171,
+            162
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 302,
+          "hydroRiskScore": 0.0997,
+          "channelBedStageM": 1508
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-090",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19491,
+      "lon": 85.35608,
+      "elevationM": 1708,
+      "chainageM": 34892,
+      "reachDescription": "Valley Wall Flank +211m (Reach km 34.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.4962,
+          "preRgb": [
+            42,
+            60,
+            58
+          ],
+          "postRgb": [
+            173,
+            187,
+            179
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 211,
+          "hydroRiskScore": 0.1211,
+          "channelBedStageM": 1496.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-091",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19593,
+      "lon": 85.34672,
+      "elevationM": 1614,
+      "chainageM": 35157,
+      "reachDescription": "Valley Wall Flank +120m (Reach km 35.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.3553,
+          "preRgb": [
+            73,
+            95,
+            73
+          ],
+          "postRgb": [
+            166,
+            178,
+            169
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 120,
+          "hydroRiskScore": 0.175,
+          "channelBedStageM": 1493.6
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-092",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18962,
+      "lon": 85.35339,
+      "elevationM": 1773,
+      "chainageM": 35434,
+      "reachDescription": "Valley Wall Flank +289m (Reach km 35.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1308,
+          "spectralDiff": 0.0409,
+          "preRgb": [
+            60,
+            74,
+            63
+          ],
+          "postRgb": [
+            68,
+            85,
+            75
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 289,
+          "hydroRiskScore": 0.1019,
+          "channelBedStageM": 1484
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-093",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.19486,
+      "lon": 85.34322,
+      "elevationM": 1679,
+      "chainageM": 35724,
+      "reachDescription": "Valley Wall Flank +198m (Reach km 35.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 1,
+          "spectralDiff": 0.2937,
+          "preRgb": [
+            73,
+            89,
+            69
+          ],
+          "postRgb": [
+            145,
+            160,
+            150
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 198,
+          "hydroRiskScore": 0.1258,
+          "channelBedStageM": 1481
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-094",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18779,
+      "lon": 85.35023,
+      "elevationM": 1843,
+      "chainageM": 36038,
+      "reachDescription": "Valley Wall Flank +367m (Reach km 36.0)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.03,
+          "spectralDiff": 0.0082,
+          "preRgb": [
+            41,
+            60,
+            58
+          ],
+          "postRgb": [
+            44,
+            63,
+            59
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 367,
+          "hydroRiskScore": 0.0909,
+          "channelBedStageM": 1475.5
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-095",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18929,
+      "lon": 85.3405,
+      "elevationM": 1743,
+      "chainageM": 36316,
+      "reachDescription": "Valley Wall Flank +276m (Reach km 36.3)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.063,
+          "spectralDiff": 0.0197,
+          "preRgb": [
+            74,
+            88,
+            69
+          ],
+          "postRgb": [
+            67,
+            95,
+            70
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 276,
+          "hydroRiskScore": 0.1043,
+          "channelBedStageM": 1467.4
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-096",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18168,
+      "lon": 85.34663,
+      "elevationM": 1651,
+      "chainageM": 36618,
+      "reachDescription": "Valley Wall Flank +185m (Reach km 36.6)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0208,
+          "spectralDiff": 0.0065,
+          "preRgb": [
+            50,
+            72,
+            61
+          ],
+          "postRgb": [
+            50,
+            75,
+            62
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 175,
+          "heightAboveRiverbedM": 185,
+          "hydroRiskScore": 0.1311,
+          "channelBedStageM": 1466.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-097",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.18108,
+      "lon": 85.33726,
+      "elevationM": 1818,
+      "chainageM": 36907,
+      "reachDescription": "Valley Wall Flank +354m (Reach km 36.9)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.1092,
+          "spectralDiff": 0.0114,
+          "preRgb": [
+            45,
+            61,
+            60
+          ],
+          "postRgb": [
+            50,
+            61,
+            64
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 177,
+          "heightAboveRiverbedM": 354,
+          "hydroRiskScore": 0.0924,
+          "channelBedStageM": 1464.2
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-098",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.17913,
+      "lon": 85.3494,
+      "elevationM": 1737,
+      "chainageM": 37160,
+      "reachDescription": "Valley Wall Flank +263m (Reach km 37.2)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0163,
+          "spectralDiff": 0.0034,
+          "preRgb": [
+            52,
+            72,
+            62
+          ],
+          "postRgb": [
+            52,
+            72,
+            60
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 179,
+          "heightAboveRiverbedM": 263,
+          "hydroRiskScore": 0.107,
+          "channelBedStageM": 1474.1
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-099",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.17796,
+      "lon": 85.33859,
+      "elevationM": 1628,
+      "chainageM": 37400,
+      "reachDescription": "Valley Wall Flank +172m (Reach km 37.4)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.0843,
+          "spectralDiff": 0.0169,
+          "preRgb": [
+            93,
+            101,
+            83
+          ],
+          "postRgb": [
+            84,
+            97,
+            83
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 181,
+          "heightAboveRiverbedM": 172,
+          "hydroRiskScore": 0.1372,
+          "channelBedStageM": 1456.3
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  },
+  {
+    "sampleId": "BK-100",
+    "label": 0,
+    "labelName": "NON_FLOOD",
+    "location": {
+      "lat": 28.17635,
+      "lon": 85.34782,
+      "elevationM": 1773,
+      "chainageM": 37665,
+      "reachDescription": "Valley Wall Flank +341m (Reach km 37.7)"
+    },
+    "modalities": {
+      "satellite": {
+        "source": "Vantor WorldView-2/3 Open Data Program",
+        "sourceType": "satellite",
+        "sceneBefore": "10300100C86CED00 (WorldView-2, 2021-10-16)",
+        "sceneAfter": "B040001100881410 (WorldView-3, 2026-08-27)",
+        "timestamp": "2026-08-27T04:15:00Z",
+        "license": "CC BY-NC 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "opticalChangeScore": 0.055,
+          "spectralDiff": 0.0139,
+          "preRgb": [
+            61,
+            81,
+            69
+          ],
+          "postRgb": [
+            57,
+            84,
+            66
+          ]
+        }
+      },
+      "weatherHydrology": {
+        "source": "Nepal DHM Station 652 (Trishuli) & GeoPera Catchment Model",
+        "sourceType": "weather_hydrology",
+        "timestamp": "2026-08-26T18:00:00Z",
+        "license": "ODbL / CC BY 4.0",
+        "provenance": "public",
+        "synthetic": false,
+        "features": {
+          "rainfallMm24h": 183,
+          "heightAboveRiverbedM": 341,
+          "hydroRiskScore": 0.094,
+          "channelBedStageM": 1431.7
+        }
+      },
+      "groundWitness": {
+        "source": "GeoGeorgeShadrach Geolocation Map / GeoConfirmed",
+        "sourceType": "ground_witness",
+        "timestamp": "2026-08-26T22:30:00Z",
+        "license": "Public Open Research",
+        "provenance": "public",
+        "synthetic": false,
+        "hasReport": true,
+        "reportTitle": "Valley Wall Stability Monitoring",
+        "summary": "Hillside intact; ground above flood inundation limit.",
+        "sourceUrl": "https://x.com/geogeorgeology/status/2093632283442053371",
+        "witnessSeverityScore": 0.05
+      }
+    }
+  }
+]);

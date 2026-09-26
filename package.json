@@ -1,0 +1,11 @@
+{
+  "name": "oneforall",
+  "private": true,
+  "description": "Root workspace proxy for DISASTERLENS / ouroboros-sky",
+  "scripts": {
+    "dev": "npm --prefix ouroboros-sky run dev",
+    "build": "npm --prefix ouroboros-sky run build",
+    "evaluate": "npm --prefix ouroboros-sky run evaluate",
+    "test": "npm --prefix ouroboros-sky test"
+  }
+}
