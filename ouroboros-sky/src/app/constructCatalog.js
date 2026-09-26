@@ -62,8 +62,8 @@ const RETAINED_LAYER_IDS = new Set([
   'local-datacenters',
   'local-firms',
   'disaster-intelligence',
-  'cctv',
 ]);
+
 
 /** Serialization metadata for retained DisasterLens layers. */
 export const APPLICATION_LAYER_METADATA = Object.freeze([
