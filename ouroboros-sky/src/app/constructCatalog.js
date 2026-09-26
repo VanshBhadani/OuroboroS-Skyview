@@ -18,6 +18,7 @@ import { localGeoJsonServices } from './localGeojsonServices.js';
 import { createBhoteKoshiEventLayer } from '../data/bhoteKoshiEvent.js';
 import { createBhoteKoshiLocatorLayer } from '../data/bhoteKoshiLocator.js';
 import { createDisasterIntelligenceLayer } from '../layers/disasterIntel/index.js';
+import { createApplicationCctv } from './layers/cctv.js';
 
 const SOURCE_METHODS = Object.freeze({
   traffic: [
@@ -34,10 +35,12 @@ const SOURCE_METHODS = Object.freeze({
   cyclones: ['getSnapshot'],
   earthquakes: ['getSnapshot'],
   'fire-perimeters': ['getSnapshot'],
+  cctv: ['getCatalog', 'getHealth', 'getFrameUrl', 'getMediaUrl'],
 });
 
 export const LOCAL_ONLY_LAYER_METADATA = Object.freeze([
   Object.freeze({ id: 'disaster-intelligence', disposition: 'local-only' }),
+  Object.freeze({ id: 'cctv', disposition: 'local-only' }),
 ]);
 
 const RETAINED_LAYER_IDS = new Set([
@@ -59,6 +62,7 @@ const RETAINED_LAYER_IDS = new Set([
   'local-datacenters',
   'local-firms',
   'disaster-intelligence',
+  'cctv',
 ]);
 
 /** Serialization metadata for retained DisasterLens layers. */
@@ -143,6 +147,7 @@ export function createApplicationCatalog({
         feed: sources.firms,
       }),
       createDisasterIntelligenceLayer(),
+      createApplicationCctv({ surface, source: sources.cctv }),
     ];
     const activeIds = new Set(layers.map((layer) => layer.id));
     const activeMetadata = metadata.filter((entry) => activeIds.has(entry.id));
