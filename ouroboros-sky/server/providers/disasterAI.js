@@ -39,6 +39,131 @@ export function disasterAiProxy() {
       });
     }
 
+    // Global Live Feed AI Analysis: POST /api/disaster-intel/global-analysis
+    if (path === '/global-analysis') {
+      if (req.method !== 'POST') {
+        return sendJson(405, { error: 'Method not allowed' });
+      }
+
+      const apiKey = process.env.NVIDIA_API_KEY || process.env.OPENAI_API_KEY;
+      if (!apiKey) {
+        return sendJson(503, { error: 'NVIDIA_API_KEY not configured' });
+      }
+
+      try {
+        const rawBody = await readRequestBody(req, 512 * 1024);
+        const feeds = JSON.parse(rawBody || '{}');
+
+        // Pull processed zone data for the Nepal scenario context
+        const zones = getProcessedDisasterZones('T4');
+        const zoneSummary = zones.map((z) => ({
+          id: z.zoneId,
+          name: z.name,
+          risk: z.fusedRisk,
+          priority: z.priority,
+          confidence: z.confidence,
+          uncertainty: z.uncertainty,
+        }));
+
+        const systemPrompt = [
+          'You are DisasterLens Global Intelligence Analyst, powered by NVIDIA NIM GLM-5.3-Flash.',
+          'You receive real-time aggregated data from multiple live APIs: NASA FIRMS (active fires), NHC (tropical cyclones), weather radar, traffic systems, and multimodal flood zone sensors.',
+          'Analyze ALL provided data and generate a comprehensive global disaster threat assessment.',
+          'Structure your response in exactly these sections:',
+          '1. 🌍 GLOBAL THREAT OVERVIEW: 2-3 sentences summarizing the most critical active threats worldwide right now.',
+          '2. 🔥 ACTIVE FIRE INTELLIGENCE: Fire hotspot density, highest-risk regions, trend (escalating/stable/declining).',
+          '3. 🌀 CYCLONE / STORM INTELLIGENCE: Any active tropical systems, track forecast, landfall risk.',
+          '4. 🌊 FLOOD ZONE STATUS: Summary of multimodal flood zone sensor data — which zones are critical.',
+          '5. 🚗 MOBILITY & INFRASTRUCTURE IMPACT: Traffic disruption, route blockages, evacuation feasibility.',
+          '6. ⚠️ PRIORITY ACTIONS: Top 3 recommended actions for emergency coordinators right now.',
+          '7. 🔮 24H FORECAST: Brief probabilistic outlook for the next 24 hours.',
+          'Be concise, authoritative, and data-driven. Reference specific numbers from the data provided.',
+        ].join('\n');
+
+        const firmsData = feeds.firms || {};
+        const cyclonesData = feeds.cyclones || {};
+        const trafficData = feeds.traffic || {};
+        const weatherData = feeds.weather || {};
+
+        const userPrompt = [
+          `=== LIVE API FEED SNAPSHOT (${new Date().toISOString()}) ===`,
+          '',
+          `--- NASA FIRMS (Active Fires, Last 24h) ---`,
+          `Total fire hotspots detected: ${firmsData.count ?? 'N/A'}`,
+          `Sources: VIIRS NOAA-20, VIIRS NOAA-21, VIIRS Suomi-NPP, MODIS`,
+          `Status: ${firmsData.status ?? (firmsData.count > 0 ? 'live data' : 'no key / unavailable')}`,
+          firmsData.topRegions ? `Highest density regions: ${firmsData.topRegions}` : '',
+          '',
+          `--- NHC Tropical Cyclones ---`,
+          `Active systems: ${cyclonesData.activeCount ?? 'N/A'}`,
+          `Storm names: ${cyclonesData.names?.join(', ') || 'None reported'}`,
+          `Max sustained winds: ${cyclonesData.maxWinds ?? 'N/A'} kt`,
+          '',
+          `--- Weather / Radar ---`,
+          `Radar status: ${weatherData.radarStatus ?? 'live'}`,
+          `Lightning density: ${weatherData.lightningDensity ?? 'N/A'}`,
+          `Coverage region: ${weatherData.coverage ?? 'Global mosaic'}`,
+          '',
+          `--- TomTom Traffic / Mobility ---`,
+          `Traffic data status: ${trafficData.status ?? 'live'}`,
+          `Average congestion index: ${trafficData.congestionIndex ?? 'N/A'}`,
+          '',
+          `--- DISASTERLENS Flood Zone Sensors (Nepal — Bhote Koshi, T4 Peak) ---`,
+          `Active zones: ${zoneSummary.length}`,
+          ...zoneSummary.map((z) =>
+            `  Zone ${z.id} "${z.name}": risk=${(z.risk * 100).toFixed(0)}%, priority=${z.priority}, confidence=${(z.confidence * 100).toFixed(0)}%, uncertainty=±${(z.uncertainty * 100).toFixed(0)}%`
+          ),
+        ].filter((l) => l !== '').join('\n');
+
+        const baseUrl = process.env.NVIDIA_BASE_URL || 'https://integrate.api.nvidia.com/v1';
+        const model = process.env.NVIDIA_MODEL || 'z-ai/glm-5.3-flash';
+
+        const apiResponse = await fetch(`${baseUrl.replace(/\/+$/, '')}/chat/completions`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model,
+            messages: [
+              { role: 'system', content: systemPrompt },
+              { role: 'user', content: userPrompt },
+            ],
+            temperature: 0.35,
+            max_tokens: 2048,
+          }),
+        });
+
+        if (!apiResponse.ok) {
+          const errText = await apiResponse.text().catch(() => '');
+          console.warn('[disaster-ai] Global analysis NVIDIA NIM error:', apiResponse.status, errText);
+          return sendJson(502, { error: 'NVIDIA NIM global analysis request failed' });
+        }
+
+        const data = await apiResponse.json();
+        const content = data.choices?.[0]?.message?.content || '';
+
+        return sendJson(200, {
+          ok: true,
+          model,
+          provider: 'NVIDIA NIM',
+          analysis: content,
+          feedsUsed: {
+            firms: Boolean(firmsData.count),
+            cyclones: Boolean(cyclonesData.activeCount != null),
+            traffic: Boolean(trafficData.status),
+            weather: Boolean(weatherData.radarStatus),
+            floodZones: zoneSummary.length,
+          },
+          timestamp: new Date().toISOString(),
+        });
+      } catch (err) {
+        console.warn('[disaster-ai] Global analysis error:', err);
+        return sendJson(500, { error: 'Global analysis internal error' });
+      }
+    }
+
     // AI Copilot Assessment endpoint: POST /api/disaster-intel/ai-copilot or /ai-assessment
     if (path === '/ai-copilot' || path === '/ai-assessment') {
       if (req.method !== 'POST') {
